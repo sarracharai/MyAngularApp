@@ -1,4 +1,4 @@
-# Editor configuration, see https://editorconfig.org
+npm install @auth0/angular-jwt# Editor configuration, see https://editorconfig.org
 root = true
 
 [*]
