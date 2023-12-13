@@ -1,0 +1,50 @@
+<div class="container">
+    <div>
+        <h2>Ajouter un Vol :</h2>
+    </div>
+
+    <form>
+        <div hidden class="col-sm-2 col-md-2 col-lg-2">
+            <label>ID Vol</label>
+            <input type="text" [(ngModel)]="newVol.idV" name="idV" class="form-control">
+        </div>
+        <div class="col-sm-4 col-md-4 col-lg-4">
+            <label>Destination</label>
+            <input type="text" [(ngModel)]="newVol.destinationV" name="destinationV" class="form-control">
+        </div>
+
+        <div class="col-sm-2 col-md-2 col-lg-2">
+            <label>Aeroport Depart</label>
+            <input type="text" [(ngModel)]="newVol.aeroportDepartV" name="aeroportDepartV" class="form-control">
+        </div>
+        <div class="col-sm-4 col-md-4 col-lg-4">
+            <label>Aeroport Arrivee</label>
+            <input type="text" [(ngModel)]="newVol.aeroportArriveeV" name="aeroportArriveeV" class="form-control">
+        </div>
+
+        <div class="col-sm-4 col-md-4 col-lg-4">
+            <label>Statut de Vol</label>
+            <input type="text" [(ngModel)]="newVol.statutV" name="statutV" class="form-control">
+        </div>
+
+         <div class="col-sm-4 col-md-4 col-lg-4">
+            <label>Avion</label>
+            <select class="form-control form-control-lg" id="idAv" name="idAv" [(ngModel)]="newIdAv">
+                <option *ngFor="let av of avions" [value]="av.idAv"> {{av.nomAv}} </option>
+            </select>
+        </div> 
+
+        <div class="col-sm-16 col-md-16 col-lg-16">
+            <label class="mb-2">Image :</label>
+             <input type="file" (change)="onImageUpload($event)" name="logo" class="form-control">
+        </div>
+
+        <div class="col-sm-16 col-md-16 col-lg-16">
+             <img [src]="imagePath" class="card-img-top img-fluid rounded-start" style="width: 500px; height: 300px" />
+             </div>
+
+        <div class="mt-2">
+            <button type="submit" (click)="addVol()" class="btn btn-success">Ajouter</button>
+        </div>
+    </form>
+</div>

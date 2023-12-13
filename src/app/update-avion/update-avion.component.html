@@ -1,0 +1,27 @@
+<form>
+    <div [hidden]="ajout" >
+        <label>ID Avion</label> 
+        <input [readOnly]="!ajout" [(ngModel)]="avion.idAv" name="idAv"
+            class="form-control w-25">
+    </div>
+    <div>
+    <label>Nom Avion</label> 
+    <input type="text" [(ngModel)]="avion.nomAv" name="nomAv"
+        class="form-control" placeholder="Entrez un nom de l'avion...">
+    </div>
+    <div>
+    <label>Capacite de l'Avion</label>
+    <input type="text" [(ngModel)]="avion.capaciteAv" name="capaciteAv"
+        class="form-control" placeholder="Entrez la capacite...">
+    </div>
+
+    <div>
+        <label>Compagnie de l'Avion</label>
+        <input type="text" [(ngModel)]="avion.compagnieAv" name="compagnieAv"
+            class="form-control" placeholder="Entrez la compagnie...">
+        </div>
+
+
+    <div  class="mt-2"> <button type="submit" [disabled]="!avion.nomAv" class="btn btn-success"
+            (click)="saveAvion()">{{ajout ? 'Ajouter' : 'Modifier'}}</button> </div>
+</form>

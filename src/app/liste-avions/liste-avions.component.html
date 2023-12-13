@@ -1,0 +1,31 @@
+<div class="container">
+    <div class="col-sm-4 col-md-4 col-lg-4 mb-4">
+<app-update-avion  [avion]="updatedAv"
+                   [ajout]="ajout"
+                    (avionUpdated)= "avionUpdated($event)" >
+                </app-update-avion>
+</div>
+    <div class="card shadow mb-4">
+        <div class="card-body">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Nom Avion</th>
+                        <th>Capacite</th>
+                        <th>Compagnie</th>
+                    </tr>
+                </thead>
+                <tbody *ngFor="let av of avions">
+                    <tr>
+                        <td>{{av.idAv}}</td>
+                        <td>{{av.nomAv}}</td>
+                        <td>{{av.capaciteAv}}</td>
+                        <td>{{av.compagnieAv}}</td>
+                        <td><a class="btn btn-success" (click)="updateAv(av)">Editer</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

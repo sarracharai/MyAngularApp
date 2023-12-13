@@ -1,0 +1,52 @@
+ <!--<div class="container">
+
+   <form class="form-inline">
+        <div class="form-group mx-sm-3 mb-2 mt-2 ">
+             <label>Nom Produit</label> <input type="text" class="form-control"
+                [(ngModel)]="destinationV" name="destinationV" class="form-control"> 
+                <button type="submit" (click)="recherchervols()" class="btn btn-primary mb-2 ml-2">Rechercher</button> </div>
+    </form> -->
+
+    <!-- <form class="form-inline">
+        <div class="form-group mx-sm-3 mb-2 mt-2 ">
+            <label>Destination </label>
+            <input class="form-control" #searchTerm (keyup)="onKeyUp(searchTerm.value)">
+        </div>
+    </form> -->
+
+
+    <form class="form-inline">
+         <div class="form-group mx-sm-3 mb-2 mt-2 ">
+         <label>Destination en tapant </label> 
+         <input #nom [(ngModel)]="searchTerm" name="searchTerm" class="form-control" > 
+        </div>
+     </form>
+
+    <div class="card shadow mb-4">
+        <div class="card-body">
+            <table class="table table-striped">
+                <tr>
+                    <th>Id</th>
+                    <th>Destination</th>
+                    <th>AeroportDepart</th>
+                    <th>AeroportArrivee</th>
+                    <th>Statut Vol </th>
+                    <th>Avion</th>
+
+                </tr>
+                
+                <tbody *ngFor="let vol of vols | searchFilter: searchTerm ">
+                    <tr>
+                        <td>{{vol.idV}}</td>
+                        <td>{{vol.destinationV}}</td>
+                        <td>{{vol.aeroportDepartV}}</td>
+                        <td>{{vol.aeroportArriveeV}}</td>
+                        <td>{{vol.statutV}}</td>
+                        <td>{{vol.avion?.nomAv}}</td>
+                        <!-- <td><a class="btn btn-danger" (click)="supprimerVol(vol)">Supprimer</a></td>
+                        <td><a class="btn btn-success" [routerLink]="['/updateVol',vol.idV]">Modifier</a></td> -->
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>

@@ -1,0 +1,31 @@
+<div class="container">
+    <div class="card shadow mb-4">
+        <div class="card-body">
+            <table class="table table-striped">
+                <tr>
+                    <th>Id</th>
+                    <th>Destination</th>
+                    <th>AeroportDepart</th>
+                    <th>AeroportArrivee</th>
+                    <th>Statut Vol </th>
+                    <th>Avion</th> 
+                    <th>Image</th>
+
+                </tr>
+                <tbody *ngFor="let vol of vols">
+                    <tr>
+                        <td>{{vol.idV}}</td>
+                        <td>{{vol.destinationV}}</td>
+                        <td>{{vol.aeroportDepartV}}</td>
+                        <td>{{vol.aeroportArriveeV}}</td>
+                        <td>{{vol.statutV}}</td>
+                         <td>{{vol.avion.nomAv}}</td>
+                         <td><img class="card-img-top img-responsive" src = "{{vol.imageStr}}" style = "height :50px;width:100px"> </td>
+                        <td><a *ngIf="authService.isAdmin()" class="btn btn-danger" (click)="supprimerVol(vol)">Supprimer</a></td>
+                        <td><a *ngIf="authService.isAdmin()" class="btn btn-success" [routerLink]="['/updateVol',vol.idV]">Modifier</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
